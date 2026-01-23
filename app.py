@@ -84,7 +84,6 @@ def parse_file(file):
 
             # --- SAISON明細：ご利用者名（セル内）→ブロック方式 ---
             elif card_type == "SAISON":
-                import re
 
                 current_user = "不明"
                 in_block = False
@@ -136,7 +135,7 @@ def parse_file(file):
                 return parsed_data
 
             # LIFEカード
-            elif len(row) >= 6 and re.match(r"^\d{4}/\d{1,2}/\d{1,2}$", str(row[0]).strip()) and row[5].replace(',', '').isdigit():
+            elif len(row) >= 6 and re.match(r"^\d{4}/\d{1,2}/\d{1,2}$", str(row[3]).strip()) and row[5].replace(',', '').isdigit():
                 try:
                     date = pd.to_datetime(row[3])
                     shop = row[4].strip()
