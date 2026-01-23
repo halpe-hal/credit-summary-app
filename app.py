@@ -28,7 +28,7 @@ def parse_file(file):
         member_index = header.index("カード会員様名") if "カード会員様名" in header else None
 
         for row in rows[1:]:
-            if len(row) >= 6 and row[0].startswith("2025/") and row[5].replace(',', '').isdigit():
+            if len(row) >= 6 and re.match(r"^\d{4}/\d{1,2}/\d{1,2}$", str(row[0]).strip()) and row[5].replace(',', '').isdigit():
                 try:
                     date = pd.to_datetime(row[0])
                     shop = row[2].strip()
@@ -136,7 +136,7 @@ def parse_file(file):
                 return parsed_data
 
             # LIFEカード
-            elif len(row) >= 6 and row[3].startswith("2025/") and row[5].replace(',', '').isdigit():
+            elif len(row) >= 6 and re.match(r"^\d{4}/\d{1,2}/\d{1,2}$", str(row[0]).strip()) and row[5].replace(',', '').isdigit():
                 try:
                     date = pd.to_datetime(row[3])
                     shop = row[4].strip()
