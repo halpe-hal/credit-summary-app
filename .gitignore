@@ -1,0 +1,33 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env
+*.env
+
+# Streamlit
+.streamlit/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Compiled
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
